@@ -11,23 +11,23 @@ object Reading {
     }
       .recoverWith {
         case e: NumberFormatException => Failure(
-          ParserError(s"Couldn't parse an integer for sensor ID from " +
+          ParserErrorOld(s"Couldn't parse an integer for sensor ID from " +
             s"string '${source}'")
         )
       }
   } else {
-    Failure(ParserError(s"String '${source}' does not start with an 's'"))
+    Failure(ParserErrorOld(s"String '${source}' does not start with an 's'"))
   }
 
   def parseHumidity(source: String): Try[Int] = Try(source.toInt)
     .filter(value => 0 <= value && value <= 100)
     .recoverWith {
       case e: NumberFormatException => Failure(
-        ParserError(s"Couldn't parse an integer for humidity from string " +
+        ParserErrorOld(s"Couldn't parse an integer for humidity from string " +
           s"'${source}'")
       )
       case e: NoSuchElementException => Failure(
-        ParserError(s"Couldn't match integer between 0 and 100 inclusive " +
+        ParserErrorOld(s"Couldn't match integer between 0 and 100 inclusive " +
           s"on string '${source}''")
       )
     }
@@ -40,7 +40,7 @@ object Reading {
         humidity <- parseHumidity(humidityString)
       } yield Reading(sensorId, humidity)
       case _ => Failure(
-        ParserError(s"Couldn't match string '${source}' with reading " +
+        ParserErrorOld(s"Couldn't match string '${source}' with reading " +
           s"format: s<integer>,<integer>")
       )
     }
