@@ -1,4 +1,5 @@
 import org.scalatest.FlatSpec
+import reading.{ParserError, Reading}
 
 import scala.util.{Failure, Success}
 
