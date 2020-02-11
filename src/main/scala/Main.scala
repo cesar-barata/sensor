@@ -1,7 +1,7 @@
-import reading.Reading
+import measurements.Measurement
 
 object Main {
   def main(args: Array[String]): Unit = {
-    println(Reading.parse("s2,100"))
+    println(Measurement.parse("s12100"))
   }
 }
