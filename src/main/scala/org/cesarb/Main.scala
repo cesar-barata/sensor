@@ -2,6 +2,7 @@ package org.cesarb
 
 object Main {
   def main(args: Array[String]): Unit = {
-    println("It works")
+//    Stats.sample2()
+//    println()
   }
 }
