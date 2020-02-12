@@ -1,4 +1,4 @@
-package measurements
+package org.cesarb
 
 case class Measurement(sensor: Int, humidity: Option[Int])
 

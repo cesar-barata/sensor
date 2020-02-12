@@ -1,6 +1,6 @@
-import org.scalatest.FlatSpec
+package org.cesarb
 
-import measurements._
+import org.scalatest.FlatSpec
 
 class MeasurementParserSpec extends FlatSpec {
   "parse" should "return 'Right' for a properly formatted line with humidity in [0,100]" in {
